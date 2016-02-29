@@ -14,8 +14,6 @@ lb:
   - web:web
 web:
   build: .
-  links:
-    - redis
   env_file: ./env
 #redis:
   #image: redis
