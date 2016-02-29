@@ -15,5 +15,7 @@ lb:
 web:
   build: .
   env_file: ./env
+  labels:
+    - "io.rancher.container.network=true"
 #redis:
   #image: redis
