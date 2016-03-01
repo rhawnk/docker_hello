@@ -17,5 +17,6 @@ web:
   env_file: ./env
   labels:
     - "io.rancher.container.network=true"
+    - "io.rancher.scheduler.global=true"	
 #redis:
   #image: redis
