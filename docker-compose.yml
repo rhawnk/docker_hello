@@ -13,5 +13,3 @@ web:
     - "io.rancher.container.network=true"
     - "io.rancher.scheduler.global=true"	
     - "io.rancher.container.hostname_override=container_name"
-#redis:
-  #image: redis
