@@ -19,8 +19,8 @@ def printme():
 def hello():
     name = os.getenv('NAME', "world")
     redis = os.getenv('REDISSERVER')
-    hostname = os.getenv('HOSTNAME', socket.gethostname())
-    container = os.getenv('DOCKER_HOST', 'UNKNOWN')
+    container = os.getenv('HOSTNAME', socket.gethostname())
+    host = os.getenv('DOCKER_HOST', 'UNKNOWN')
     color = os.getenv('BG-COLOR','#673ab7')
     # visitcount = printme()
     return render_template('page.html', name=name, redis=redis, bg_color=color, container=container, visitcount=printme())
