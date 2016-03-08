@@ -18,8 +18,9 @@ web:
     - redis
   ## ensure you create the env file in the local directory.  Follow the env-example file.
   env_file: ./env
+  ## mapping port 80 on host to port 80 on the container
   ports:
-    - "5000:80"
+    - "80:80"
   ##############
   # Labels specific to rancher, will cause errors if just deployed by docker compose
   ##############
