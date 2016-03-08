@@ -1,15 +1,34 @@
-lb:
-  image: rancher/load-balancer-service
-  ports:
-  # Listen on public port 80 and direct traffic to private port 80 of the service
-  - 80:80
-  links:
-  # Target services in the same stack will be listed as a link
-  - web:web
+##############
+# load balancer section removed, as not needed in local (non-rancher) deployment
+##############
+# lb:
+#   image: rancher/load-balancer-service
+#   ports:
+#   # Listen on public port 80 and direct traffic to private port 80 of the service
+#   - 80:80
+#   links:
+#   # Target services in the same stack will be listed as a link
+#   - web:web
+#
+#
 web:
   build: .
+  ## added link to redis container for local communication between webserver container and redis container
+  links:
+    - redis
+  ## ensure you create the env file in the local directory.  Follow the env-example file.
   env_file: ./env
-  labels:
-    - "io.rancher.container.network=true"
-    - "io.rancher.scheduler.global=true"	
-    - "io.rancher.container.hostname_override=container_name"
+  ports:
+    - "5000:80"
+  ##############
+  # Labels specific to rancher, will cause errors if just deployed by docker compose
+  ##############
+  # labels:
+  #   - "io.rancher.container.network=true"
+  #   - "io.rancher.scheduler.global=true"
+  #   - "io.rancher.container.hostname_override=container_name"
+  #
+  #
+## added redis container for local deployment
+redis:
+  image: redis
