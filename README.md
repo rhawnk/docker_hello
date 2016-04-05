@@ -16,7 +16,8 @@ Define an env file as templated by env-example, or simply make a copy of env-exa
 Modify the env file with valid values.
 
 Run the rancher-compose command to spin up a stack of containers. 
-`bash
+
+```bash
 # Note as a Prereq to using rancher-compose you should set a couple of env vars
 # Set the url that Rancher is on
 $ export RANCHER_URL=http://rancher.maxwell-ondemand.com:8080
@@ -30,5 +31,5 @@ $ rancher-compose -f docker-compose.yml -p mvp up -d
 # To change the scale of an existing service
 $ rancher-compose -p mvp scale web=5
 
-`
+```
 
