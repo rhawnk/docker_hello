@@ -22,8 +22,10 @@ def hello():
     container = os.getenv('HOSTNAME', socket.gethostname())
     host = os.getenv('DOCKER_HOST', 'UNKNOWN')
     color = os.getenv('BG-COLOR','#673ab7')
-    # visitcount = printme()
-    return render_template('page.html', name=name, redis=redis, bg_color=color, container=container, visitcount=printme())
+    count = printme()
+    with open("app.log", "w") as f:
+        f.write("{}: Visited the URL ({} times)".format(datetime.isoformat(), count)
+    return render_template('page.html', name=name, redis=redis, bg_color=color, container=container, visitcount=count)
 
 if __name__ == "__main__":
 	app.run(host='0.0.0.0', port=80)
