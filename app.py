@@ -24,7 +24,7 @@ def hello():
     color = os.getenv('BG-COLOR','#673ab7')
     count = printme()
     with open("app.log", "w") as f:
-        f.write("{}: Visited the URL ({} times)".format(datetime.isoformat(), count)
+        f.write("{}: Visited the URL ({} times)".format(datetime.isoformat(), count))
     return render_template('page.html', name=name, redis=redis, bg_color=color, container=container, visitcount=count)
 
 if __name__ == "__main__":
