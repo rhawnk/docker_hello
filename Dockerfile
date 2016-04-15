@@ -10,6 +10,7 @@ RUN pip install -r requirements.txt
 
 # Copy our code from the current folder to /app inside the container
 ADD . /app
+RUN ln -s /dev/stdout /app/myfile.txt
 
 # Make port 5000 available for links and/or publish
 EXPOSE 80
