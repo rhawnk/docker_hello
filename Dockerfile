@@ -3,6 +3,7 @@ FROM python:2.7-slim
 
 # Set the application directory
 WORKDIR /app
+RUN ln -s /dev/stdout /app/myfile.txt
 
 # Install our requirements.txt
 ADD requirements.txt /app/requirements.txt
