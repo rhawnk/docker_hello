@@ -24,6 +24,10 @@ def hello():
     color = os.getenv('BG-COLOR','#673ab7')
     # visitcount = printme()
     return render_template('page.html', name=name, redis=redis, bg_color=color, container=container, visitcount=printme())
+    
+@app.route("/health-check")
+def health():
+    return render_template('health-check.html')    
 
 if __name__ == "__main__":
 	app.run(host='0.0.0.0', port=80)
