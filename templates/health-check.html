@@ -1,5 +1,15 @@
-<html>
+html>
 <body>
-Healthy
+
+  <p id="demo">Error!</p> 
+
+  <script>
+    var d = new Date();
+    var n = d.getMinutes();
+    if ( n % 2 == 0) {
+        document.getElementById("demo").innerHTML = "Healthy";
+        }
+  </script>
+
 </body>
 </html>
